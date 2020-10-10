@@ -11,6 +11,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Problems/Arithmetic expression" />
+            <option value="$PROJECT_DIR$/Problems/Date and time formatting" />
+            <option value="$PROJECT_DIR$/Problems/N-th symbol" />
             <option value="$PROJECT_DIR$/Problems/Print two numbers on the same line" />
             <option value="$PROJECT_DIR$/Problems/The information about a person" />
             <option value="$PROJECT_DIR$/Tic-Tac-Toe/task" />
