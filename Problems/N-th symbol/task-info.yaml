@@ -12,18 +12,9 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/4630
-status: Failed
+status: Solved
 feedback:
-  message: "Failed test #1 of 8. Runtime error\n\nThis is a sample test from the problem\
-    \ statement!\n\nTest input:\nhello world\n1\nCorrect output:\nSymbol # 1 of the\
-    \ string \"hello world\" is 'h'\n\nYour code output:\n\n\nError:\nException in\
-    \ thread \"main\" java.util.InputMismatchException\n\tat java.base/java.util.Scanner.throwFor(Scanner.java:939)\n\
-    \tat java.base/java.util.Scanner.next(Scanner.java:1594)\n\tat java.base/java.util.Scanner.nextInt(Scanner.java:2258)\n\
-    \tat java.base/java.util.Scanner.nextInt(Scanner.java:2212)\n\tat MainKt.main(main.kt:6)\n\
-    \tat MainKt.main(main.kt)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native\
-    \ Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\
-    \tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\
-    \tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat org.jetbrains.kotlin.runner.AbstractRunner.run(runners.kt:61)\n\
-    \tat org.jetbrains.kotlin.runner.Main.run(Main.kt:109)\n\tat org.jetbrains.kotlin.runner.Main.main(Main.kt:119)\n"
-  time: Sat, 10 Oct 2020 16:21:23 UTC
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/4630">JetBrains
+    Academy</a></html>
+  time: Sat, 10 Oct 2020 16:36:41 UTC
 record: -1
