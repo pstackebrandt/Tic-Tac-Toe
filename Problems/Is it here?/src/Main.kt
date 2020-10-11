@@ -3,7 +3,7 @@ import java.util.*
 fun main() {
     val scanner = Scanner(System.`in`)
     val numbers = with(scanner) {
-        IntArray(this.nextInt()) { this.nextInt() }.toMutableList()
+        IntArray(this.nextInt()) { this.nextInt() }
     }
     val searchedNumber = scanner.nextInt()
 
