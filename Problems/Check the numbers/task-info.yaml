@@ -11,13 +11,10 @@ files:
         // write your code here
     }
   learner_created: false
-- name: src/AreNeighboursTest.kt
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/4700
 status: Solved
 feedback:
   message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/4700">JetBrains
     Academy</a></html>
-  time: Mon, 12 Oct 2020 16:22:56 UTC
+  time: Tue, 13 Oct 2020 08:38:02 UTC
 record: -1

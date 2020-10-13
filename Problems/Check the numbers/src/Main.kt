@@ -1,30 +1,21 @@
-//package checkTheNumbers
 import java.util.*
 
 fun main() {
     val scanner = Scanner(System.`in`)
-    val numbersCount = scanner.nextInt()
-    val numbers = IntArray(numbersCount) { scanner.nextInt() }
-    val firstAndSecond = setOf(scanner.nextInt(), scanner.nextInt())
+    scanner.nextLine() // ignore size
+    val numbers = scanner.nextLine()
+    val possibleNeighbours = scanner.nextLine()
 
-    val areNeighbours = areNeighbours(numbers, firstAndSecond)
-    val result = if (areNeighbours) {
-        "NO"
-    } else {
-        "YES"
-    }
-
-    println(result)
+    println(formatAnswer(areNeighbours(numbers, possibleNeighbours)))
 }
 
-internal fun areNeighbours(numbers: IntArray, firstAndSecond: Set<Int>): Boolean {
-    for (number in numbers.withIndex()) {
-        if (number.index < numbers.lastIndex) {
-            val currentAndNext = setOf(number.value, numbers[number.index + 1])
-            if (currentAndNext == firstAndSecond) {
-                return true
-            }
-        }
-    }
-    return false
+fun areNeighbours(numbers: String, possibleNeighbours: String) =
+        numbers.contains(possibleNeighbours)
+                || numbers.contains(possibleNeighbours.reversed())
+
+private fun formatAnswer(areNeighbours: Boolean) = if (areNeighbours) {
+    "NO"
+} else {
+    "YES"
 }
+
