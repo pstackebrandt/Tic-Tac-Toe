@@ -1,7 +1,6 @@
 package tictactoe
 
 import org.junit.Test
-
 import org.junit.Assert.*
 
 class CellTest {
@@ -85,18 +84,18 @@ class CellTest {
 
     class GetPlayerCellTest {
         @Test
-        fun should_deliver_player_x_cell_sign() {
-            val actual = getPlayerSign(Player.X)
+        fun should_deliver_player_x_cell_token() {
+            val actual = getPlayerToken(Player.X)
             assert(actual == X_CELL) { "Should deliver X cell. delivered: $actual" }
         }
 
         @Test
-        fun should_deliver_player_o_cell_sign() {
-            val actual = getPlayerSign(Player.O)
+        fun should_deliver_player_o_cell_token() {
+            val actual = getPlayerToken(Player.O)
             assert(actual == O_CELL) { "Should deliver O cell. delivered: $actual" }
         }
     }
-    
+
     class TakenLinesCountTest {
         @Test
         fun should_detect_that_no_line_taken_by_x() {

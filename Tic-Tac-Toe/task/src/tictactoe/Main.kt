@@ -77,18 +77,20 @@ internal fun hasValidCharacters(cells: String): Boolean {
 internal fun hasValidLength(cells: String) =
         cells.length == CELLS_LENGTH
 
+/** Get count of lines taken by [player]. A line may be a row, column or diagonal. */
 internal fun takenLinesCount(cells: String, player: Player): Int {
-    val lists = listOf(listOf(0, 1, 2), listOf(3, 4, 5), listOf(6, 7, 8),  // rows
+    val lines = listOf(
+            listOf(0, 1, 2), listOf(3, 4, 5), listOf(6, 7, 8),  // rows
             listOf(0, 3, 6), listOf(1, 4, 7), listOf(2, 5, 8), // columns
             listOf(6, 4, 2), listOf(0, 4, 8) // slash line, back slash line
     )
-    val sign = getPlayerSign(player)
+    val token = getPlayerToken(player)
     var takenLines = 0
 
-    for (list in lists) {
-        if (cells[list[0]] == sign &&
-                cells[list[1]] == sign &&
-                cells[list[2]] == sign) {
+    for (line in lines) {
+        if (cells[line[0]] == token &&
+                cells[line[1]] == token &&
+                cells[line[2]] == token) {
             takenLines++
         }
     }
@@ -96,7 +98,7 @@ internal fun takenLinesCount(cells: String, player: Player): Int {
     return takenLines
 }
 
-internal fun getPlayerSign(player: Player) =
+internal fun getPlayerToken(player: Player) =
         if (player == Player.X) X_CELL else O_CELL
 
 internal fun countPlayerCells(cells: String) =
