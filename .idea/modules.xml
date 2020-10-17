@@ -57,12 +57,16 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/The information about a person/Tic-Tac-Toe.Problems-The_information_about_a_person.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/The information about a person/Tic-Tac-Toe.Problems-The_information_about_a_person.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/The information about a person/Tic-Tac-Toe.Problems-The_information_about_a_person.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/The information about a person/Tic-Tac-Toe.Problems-The_information_about_a_person.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/The information about a person/Tic-Tac-Toe.Problems-The_information_about_a_person.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/The information about a person/Tic-Tac-Toe.Problems-The_information_about_a_person.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Triples/Tic-Tac-Toe.Problems-Triples.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Triples/Tic-Tac-Toe.Problems-Triples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Triples/Tic-Tac-Toe.Problems-Triples.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Triples/Tic-Tac-Toe.Problems-Triples.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/Triples/Tic-Tac-Toe.Problems-Triples.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/Triples/Tic-Tac-Toe.Problems-Triples.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tic-Tac-Toe/task/Tic-Tac-Toe.Tic-Tac-Toe-task.iml" filepath="$PROJECT_DIR$/.idea/modules/Tic-Tac-Toe/task/Tic-Tac-Toe.Tic-Tac-Toe-task.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tic-Tac-Toe/task/Tic-Tac-Toe.Tic-Tac-Toe-task.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Tic-Tac-Toe/task/Tic-Tac-Toe.Tic-Tac-Toe-task.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tic-Tac-Toe/task/Tic-Tac-Toe.Tic-Tac-Toe-task.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Tic-Tac-Toe/task/Tic-Tac-Toe.Tic-Tac-Toe-task.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Tic-Tac-Toe.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Tic-Tac-Toe.util.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Tic-Tac-Toe.util.main.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Tic-Tac-Toe.util.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Tic-Tac-Toe.util.test.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Tic-Tac-Toe.util.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Problems/Triples/test.iml" filepath="$PROJECT_DIR$/Problems/Triples/test.iml" />
     </modules>
   </component>
 </project>
