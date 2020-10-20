@@ -10,12 +10,11 @@ fun main() {
 }
 
 fun areNeighbours(numbers: String, possibleNeighbours: String) =
-        numbers.contains(possibleNeighbours)
-                || numbers.contains(possibleNeighbours.reversed())
+        numbers.contains(possibleNeighbours) ||
+                numbers.contains(possibleNeighbours.reversed())
 
-private fun formatAnswer(areNeighbours: Boolean) = if (areNeighbours) {
+fun formatAnswer(areNeighbours: Boolean) = if (areNeighbours) {
     "NO"
 } else {
     "YES"
 }
-

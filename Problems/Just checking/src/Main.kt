@@ -2,7 +2,7 @@ import java.util.*
 
 fun main() {
     val scanner = Scanner(System.`in`)
-    scanner.nextLine() // ignore size because working with lines
+    scanner.nextLine() // ignore size
     val numbers = scanner.nextLine()
     val possibleNeighbours = scanner.nextLine()
 
@@ -10,8 +10,8 @@ fun main() {
 }
 
 fun areNeighbours(numbers: String, possibleNeighbours: String) =
-        numbers.contains(possibleNeighbours)
-                || numbers.contains(possibleNeighbours.reversed())
+        numbers.contains(possibleNeighbours) ||
+                numbers.contains(possibleNeighbours.reversed())
 
 private fun formatAnswer(areNeighbours: Boolean) = if (areNeighbours) {
     "YES"

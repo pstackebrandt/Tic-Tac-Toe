@@ -10,10 +10,9 @@ fun Scanner.readAllNumbers() = mutableListOf<Int>()
         .apply {
             while (hasNextInt()) {
                 val number = nextInt()
-                if (number != 0) {
-                    this.add(number)
-                } else {
+                if (number == 0) {
                     break
                 }
+                this.add(number)
             }
         }

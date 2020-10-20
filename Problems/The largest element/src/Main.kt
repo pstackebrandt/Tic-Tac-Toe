@@ -1,10 +1,10 @@
 import java.util.*
 
-const val stop = 0
+const val INPUT_END = 0
 
 fun main() {
     println(getNumbers().max())
-    // .maxOrNull() leads to unresolved reference at compile time. Why??
+    // .getNumbers().maxOrNull() leads to unresolved reference at compile time. Why??
 }
 
 private fun getNumbers(): List<Int> {
@@ -12,8 +12,8 @@ private fun getNumbers(): List<Int> {
     with(Scanner(System.`in`)) {
         do {
             val number = this.nextInt()
-            if (number != stop) numbers.add(number)
-        } while (number != stop)
+            if (number != INPUT_END) numbers.add(number)
+        } while (number != INPUT_END)
     }
     return numbers
 }
