@@ -14,8 +14,5 @@ files:
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/4667
-status: Unchecked
-feedback:
-  message: Failed to get check result from JetBrains Academy
-  time: Wed, 21 Oct 2020 09:38:27 UTC
+status: Solved
 record: -1
