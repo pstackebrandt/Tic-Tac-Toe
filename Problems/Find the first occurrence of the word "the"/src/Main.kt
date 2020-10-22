@@ -1,3 +1,4 @@
 fun main() {
-    // write your code here    
+    val indexOrNull = readLine()?.indexOf("the", ignoreCase = true)
+    println(indexOrNull?: -1)
 }
