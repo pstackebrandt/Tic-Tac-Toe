@@ -6,14 +6,10 @@ fun main() {
             .also { println(it) }
 }
 
-internal fun moveCharsToEnd(count: Int, string: String) =
-        if (count >= string.length || count <= 0) {
-            string
-        } else {
-            string.substring(count) + string.subSequence(0 until count)
-        }
+private fun moveCharsToEnd(count: Int, string: String) =
+        string.drop(count) + string.take(count)
 
-internal fun getInput() =
+private fun getInput() =
         with(Scanner(System.`in`)) {
             Input(next().trim(), nextInt())
         }

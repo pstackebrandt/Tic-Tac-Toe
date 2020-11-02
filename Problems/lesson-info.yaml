@@ -38,3 +38,8 @@ content:
 - The percentage of G and C characters
 - Compression algorithm
 - Move the first N characters
+- Cutting out the middle of a string
+- Convert a date
+- Parse url
+- Create a euphonious word
+- Lucky number
