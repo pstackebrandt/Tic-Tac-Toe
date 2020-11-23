@@ -26,73 +26,6 @@ private fun getStartSituation(): String {
     return Scanner(System.`in`).next()
 }
 
-<<<<<<< HEAD
-=======
-/** Organizes moves */
-class MoveMaker {
-
-    /** Get cells including a move from the user. This move is valid. */
-    fun makeMove(cells: String): String {
-        val move = getMove()
-
-        return cells
-    }
-
-    private val temporaryCoordinates = 0 to 0
-
-    /* Add coordinates for test of the method only. */
-    fun getMove(coordinatesForTest: Pair<Int, Int> = temporaryCoordinates): Pair<Int, Int> {
-        println("Enter the coordinates:")
-        var coordinates: Pair<Int, Int>?
-        do {
-            var gotCoordinates = false
-            coordinates = if (coordinatesForTest == temporaryCoordinates) {
-                readCoordinatesFromConsole()
-            } else {
-                coordinatesForTest
-            }
-            if (coordinates != null) {
-
-                gotCoordinates = true
-            }
-        } while (!gotCoordinates)
-
-        return coordinates!!
-    }
-
-    internal fun readCoordinatesFromConsole(isTest: Boolean = false,
-                                            forTest: Pair<Int?, Int?> = Pair(null, null)) : Pair<Int, Int>? {
-        val scanner = Scanner(System.`in`)
-
-        val first = if (!isTest) readIntOrNullFromConsole(scanner) else forTest.first
-        val second = if (!isTest) readIntOrNullFromConsole(scanner) else forTest.second
-
-        if (!checkCoordinates(first, second)) return null
-
-        return first!! to second!!
-    }
-
-    internal fun checkCoordinates(first: Int?, second: Int?): Boolean {
-        if (first == null || second == null) {
-            println("You should enter numbers!")
-            return false
-        } else if (first !in 1..3 || second !in 1..3) {
-            println("Coordinates should be from 1 to 3!")
-            return false
-        }
-        return true
-    }
-
-    private fun readIntOrNullFromConsole(scanner: Scanner): Int? {
-        if (scanner.hasNextInt()) {
-            return scanner.nextInt()
-        }
-        return null
-    }
-}
-
->>>>>>> b17d5ff074eae1eac93ca217a6d4e7cc7c9ecafd
-
 //    Game not finished, when neither side has three
 //    in a row but the grid still has empty cells.
 //    Draw when no side has a three in a row and the grid has no empty cells.
@@ -182,10 +115,6 @@ internal fun getPlayerToken(player: Player) =
 internal fun countPlayerCells(cells: String) =
         CellsHelper.countXCells(cells) to CellsHelper.countOCells(cells)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b17d5ff074eae1eac93ca217a6d4e7cc7c9ecafd
 private fun printGame(cells: String) {
     println("---------")
     println("| ${cells[0]} ${cells[1]} ${cells[2]} |")
