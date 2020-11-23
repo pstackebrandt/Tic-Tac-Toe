@@ -3,4 +3,3 @@ fun main() {
             .reversed()
             .forEach { println(it) }
 }
-

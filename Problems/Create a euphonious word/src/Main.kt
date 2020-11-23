@@ -1,7 +1,7 @@
 fun main() {
     getWord().run { getLengthsOfLetterGroups(this) }
             .run { additionalLettersForEuphoniousWord(this) }
-            .apply { println(this) }
+            .also { println(it) }
 }
 
 private fun getWord() = readLine()!!

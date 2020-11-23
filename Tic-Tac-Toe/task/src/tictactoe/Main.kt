@@ -1,19 +1,31 @@
 package tictactoe
 
-import java.util.Scanner
+import java.util.*
 import kotlin.math.abs
 
 const val X_CELL = 'X'
 const val O_CELL = 'O'
 const val EMPTY_CELL = '_'
 const val CELLS_LENGTH = 9
+const val MAX_ROWS = 3
+const val MAX_COLUMNS = 3
 
 fun main() {
-    val cells = getInput().toUpperCase()
-    val gameState = checkGameState(cells)
+    var cells = getStartSituation().toUpperCase()
+    var gameState = checkGameState(cells)
+
+    cells = MoveMaker().makeMove(cells)
+    gameState = checkGameState(cells)
+
     printGame(cells)
     printGameState(gameState)
 }
+
+private fun getStartSituation(): String {
+    println("Enter cells:")
+    return Scanner(System.`in`).next()
+}
+
 
 //    Game not finished, when neither side has three
 //    in a row but the grid still has empty cells.
@@ -50,7 +62,7 @@ fun checkGameState(cells: String): GameState {
     if (isImpossibleCells(cells)) return GameState.Impossible
     if (isWinner(Player.X, cells)) return GameState.XHasWon
     if (isWinner(Player.O, cells)) return GameState.OHasWon
-    if (hasEmptyCells(cells)) return GameState.GameGoesOn
+    if (CellsHelper.hasEmptyCells(cells)) return GameState.GameGoesOn
     return GameState.StaleMate
 }
 
@@ -102,18 +114,8 @@ internal fun getPlayerToken(player: Player) =
         if (player == Player.X) X_CELL else O_CELL
 
 internal fun countPlayerCells(cells: String) =
-        countXCells(cells) to countOCells(cells)
+        CellsHelper.countXCells(cells) to CellsHelper.countOCells(cells)
 
-internal fun countXCells(cells: String) =
-        cells.filter { it.toUpperCase() == X_CELL }.count()
-
-internal fun countOCells(cells: String) =
-        cells.filter { it.toUpperCase() == O_CELL }.count()
-
-internal fun hasEmptyCells(cells: String) =
-        cells.contains(EMPTY_CELL)
-
-private fun getInput() = Scanner(System.`in`).next()
 
 private fun printGame(cells: String) {
     println("---------")

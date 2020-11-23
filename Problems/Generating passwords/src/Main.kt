@@ -59,9 +59,9 @@ class PasswordGenerator {
     }
 
     internal fun getCharType(
-            upperCase: Boolean = true,
-            lowerCase: Boolean = true,
-            digit: Boolean = true
+        upperCase: Boolean = true,
+        lowerCase: Boolean = true,
+        digit: Boolean = true
     ): CharType {
         var upperCase = upperCase
         var lowerCase = lowerCase

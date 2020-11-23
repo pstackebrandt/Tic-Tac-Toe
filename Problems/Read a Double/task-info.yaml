@@ -8,9 +8,5 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/11264
-status: Solved
-feedback:
-  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/11264">JetBrains
-    Academy</a></html>
-  time: Mon, 02 Nov 2020 20:01:50 UTC
+status: Failed
 record: -1

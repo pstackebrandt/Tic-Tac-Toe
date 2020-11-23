@@ -8,8 +8,5 @@ files:
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/9031
-status: Unchecked
-feedback:
-  message: Failed to get check result from JetBrains Academy
-  time: Sun, 25 Oct 2020 21:17:02 UTC
+status: Solved
 record: -1

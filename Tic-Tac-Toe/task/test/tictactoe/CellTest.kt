@@ -2,6 +2,9 @@ package tictactoe
 
 import org.junit.Test
 import org.junit.Assert.*
+import tictactoe.CellsHelper.Companion.countOCells
+import tictactoe.CellsHelper.Companion.countXCells
+import tictactoe.CellsHelper.Companion.hasEmptyCells
 
 class CellTest {
     companion object {
