@@ -4,4 +4,4 @@ fun main() {
     println(countOccurrences(sentence, word))
 }
 
-private fun countOccurrences(sentence: String, word: String) = sentence.split(word).count() - 1
+private fun countOccurrences(sentence: String, word: String) = sentence.split(word).lastIndex

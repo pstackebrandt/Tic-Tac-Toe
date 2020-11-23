@@ -1,3 +1,1 @@
-fun main() {
-    readLine()!!.toDouble().also { println(it) }
-}
+fun main() = readLine()!!.toDouble().also { println(it) }

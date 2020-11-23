@@ -558,6 +558,9 @@ files:
         }
     }
   learner_created: false
+- name: test/tictactoe/ReadCoordinateTest.kt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/123/stages/657/implement
 status: Failed
 feedback:

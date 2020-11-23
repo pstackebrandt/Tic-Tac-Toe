@@ -14,12 +14,14 @@ fun main() {
             .firstOrNull {
                 it.substringBefore(EQUAL_DELIMITER) == "pass"
             }
-            ?.apply {
-                println(getPasswordFormatted(this))
+            ?.also {
+                println(getPasswordFormatted(it))
             }
+
 }
 
-private fun getPasswordFormatted(passwordQueryEntry: String) = "password : ${passwordQueryEntry.substringAfter(EQUAL_DELIMITER)}"
+private fun getPasswordFormatted(passwordQueryEntry: String) =
+    "password : ${passwordQueryEntry.substringAfter(EQUAL_DELIMITER)}"
 
 private fun getQueryContentFormatted(it: String) =
         "${it.substringBefore(EQUAL_DELIMITER)} : ${

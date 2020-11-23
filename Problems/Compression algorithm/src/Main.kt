@@ -27,6 +27,6 @@ private fun compress(dNAString: String) =
 private fun getDNAString() = readLine()!!
 
 private fun StringBuilder.appendCompressedGroup(
-        currentChar: Char,
-        equalCharCount: Int) =
-        this.append("$currentChar$equalCharCount")
+    currentChar: Char,
+    equalCharCount: Int
+) = this.append("$currentChar$equalCharCount")
