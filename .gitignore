@@ -69,3 +69,4 @@ buildSrcTmp/
 distTmp/
 outTmp/
 *.test.iml
+*.jar

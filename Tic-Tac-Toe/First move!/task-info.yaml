@@ -567,6 +567,9 @@ files:
 - name: src/tictactoe/MoveMaker.kt
   visible: true
   learner_created: true
+- name: test/tictactoe/CellsHelperTest.kt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/123/stages/657/implement
 status: Failed
 feedback:
