@@ -570,6 +570,9 @@ files:
 - name: test/tictactoe/CellsHelperTest.kt
   visible: true
   learner_created: true
+- name: test/tictactoe/MoveMakerTest.kt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/123/stages/657/implement
 status: Failed
 feedback:
@@ -583,12 +586,15 @@ feedback:
 
     ---
 
+    Enter cells:
     &gt; _XXOO_OX_
+    Enter the coordinates:
+    &gt; 1 1
     ---------
     | _ X X |
     | O O _ |
     | O X _ |
     ---------
     Game not finished
-  time: Mon, 02 Nov 2020 20:07:43 UTC
+  time: Sun, 29 Nov 2020 17:56:53 UTC
 record: -1

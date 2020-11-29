@@ -4,7 +4,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class ReadCoordinateTest {
-    companion object{
+    companion object {
         const val CELLS = "X_X_O____"
     }
 
@@ -43,67 +43,11 @@ class ReadCoordinateTest {
         }
     }
 
+    /** We should not repeat tests for methods used in the method. */
     class CheckCoordinatesTest {
-
-        class CheckForNotNullTest {
-            @Test
-            fun should_invalidate_first_value_if_is_null() {
-                val actual = MoveMaker().checkCoordinates(CELLS, null, 1)
-                assertFalse(actual)
-            }
-
-            @Test
-            fun should_invalidate_second_value_if_is_null() {
-                val actual = MoveMaker().checkCoordinates(CELLS, 2, null)
-                assertFalse(actual)
-            }
-
-            @Test
-            fun should_validate_first_value_if_is_null() {
-                val actual = MoveMaker().checkCoordinates(CELLS, 2, 1)
-                assertTrue(actual)
-            }
-        }
-
-        class CheckForBorderFitTest {
-            private val smallestValidValue = 1
-            private val biggestValidValue = 3
-
-            @Test
-            fun should_validate_values_fit_3_1() {
-                val actual = MoveMaker().checkCoordinates(CELLS, smallestValidValue, biggestValidValue)
-                assertTrue(actual)
-            }
-
-            @Test
-            fun should_validate_values_fit_1_3() {
-                val actual = MoveMaker().checkCoordinates(CELLS, biggestValidValue, smallestValidValue)
-                assertTrue(actual)
-            }
-
-            @Test
-            fun should_invalidate_first_value_too_small() {
-                val actual = MoveMaker().checkCoordinates(CELLS, smallestValidValue - 1, biggestValidValue)
-                assertFalse(actual)
-            }
-
-            @Test
-            fun should_invalidate_first_value_too_big() {
-                val actual = MoveMaker().checkCoordinates(CELLS, smallestValidValue, biggestValidValue + 1)
-                assertFalse(actual)
-            }
-
-            @Test
-            fun should_invalidate_second_value_too_big() {
-                val actual = MoveMaker().checkCoordinates(CELLS, smallestValidValue, biggestValidValue + 1)
-                assertFalse(actual)
-            }
-
-            @Test
-            fun should_invalidate_second_value_too_small() {
-                val actual = MoveMaker().checkCoordinates(CELLS, biggestValidValue, smallestValidValue - 1)
-                assertFalse(actual)
-            }
+        companion object {
+            const val smallestValidValue = 1
+            const val biggestValidValue = 3
         }
     }
 }

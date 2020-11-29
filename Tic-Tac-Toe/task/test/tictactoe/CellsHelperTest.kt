@@ -6,7 +6,7 @@ import org.junit.Assert.*
 internal class CellsHelperTest {
     class ConvertCoordinateToCellsIndexTest {
         @Test
-        fun TestTest() {
+        fun testTest() {
             assertTrue(true)
         }
 

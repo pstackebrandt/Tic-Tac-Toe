@@ -67,7 +67,7 @@ class MoveMaker {
             return false
         }
         if (!isCoordinateFree(cells, row, column)) {
-            println("Coordinates should be from 1 to 3!")
+            println("This cell is occupied! Choose another one!")
             return false
         }
         return true
