@@ -576,25 +576,6 @@ files:
 feedback_link: https://hyperskill.org/projects/123/stages/657/implement
 status: Failed
 feedback:
-  message: |-
-    Wrong answer in test #1
-
-    Can&#39;t find two fields inside output
-
-    Please find below the output of your program during this failed test.
-    Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
-
-    ---
-
-    Enter cells:
-    &gt; _XXOO_OX_
-    Enter the coordinates:
-    &gt; 1 1
-    ---------
-    | _ X X |
-    | O O _ |
-    | O X _ |
-    ---------
-    Game not finished
-  time: Sun, 29 Nov 2020 17:56:53 UTC
+  message: Compilation Failed
+  time: Sun, 29 Nov 2020 20:50:03 UTC
 record: -1
