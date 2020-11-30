@@ -15,11 +15,11 @@ class MoveMaker {
                 cells[CellsHelper.convertCoordinateToCellsIndex(row, column)] == EMPTY_CELL
     }
 
-    /** Get cells including a move from the user. This move is valid. */
-    fun makeMove(cells: String): String {
-        val move = getMove(cells)
-        // todo add move to cells
-        return cells
+    /** Get 'cells' including a move from the user. This move is valid. */
+    fun makeMove(cells: String, testMove: Pair<Int, Int>? = null): String {
+        val move: Pair<Int, Int> = testMove ?: getMove(cells)
+
+        return CellsHelper.addMoveToCells(cells, move)
     }
 
     private val temporaryCoordinates = 0 to 0

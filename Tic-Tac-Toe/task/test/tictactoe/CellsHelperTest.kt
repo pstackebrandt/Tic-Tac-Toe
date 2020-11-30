@@ -33,4 +33,29 @@ internal class CellsHelperTest {
             assertEquals(expected, actual)
         }
     }
+
+    class AddMoveToCellsTest {
+        private val testCells = "012345678"
+
+        @Test
+        fun should_add_move_at_1_3() {
+            val actual = CellsHelper.addMoveToCells(testCells, 1 to 3)
+            val expected = "01X345678"
+            assertEquals(expected, actual)
+        }
+
+        @Test
+        fun should_add_move_at_first_index() {
+            val actual = CellsHelper.addMoveToCells(testCells, 1 to 1)
+            val expected = "X12345678"
+            assertEquals(expected, actual)
+        }
+
+        @Test
+        fun should_add_move_at_last_index() {
+            val actual = CellsHelper.addMoveToCells(testCells, 3 to 3)
+            val expected = "01234567X"
+            assertEquals(expected, actual)
+        }
+    }
 }

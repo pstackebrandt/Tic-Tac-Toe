@@ -14,5 +14,10 @@ class CellsHelper {
         /** Cell positions in a 3x3 game: 012345678, coordinate (1..3, 1..3) */
         internal fun convertCoordinateToCellsIndex(row: Int, column: Int) =
                 (row - 1) * MAX_COLUMNS + column - 1
+
+        internal fun addMoveToCells(cells: String, move: Pair<Int, Int>): String {
+            val index = CellsHelper.convertCoordinateToCellsIndex(move.first, move.second)
+            return cells.take(index) + "X" + cells.takeLast(cells.length - (index + 1))
+        }
     }
 }
