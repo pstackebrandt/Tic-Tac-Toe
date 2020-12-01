@@ -12,13 +12,16 @@ const val MAX_COLUMNS = 3
 
 fun main() {
     var cells = getStartSituation().toUpperCase()
+
+    @Suppress("VARIABLE_WITH_REDUNDANT_INITIALIZER")
     var gameState = checkGameState(cells)
+    printGame(cells)
 
     cells = MoveMaker().makeMove(cells)
-    gameState = checkGameState(cells)
+    //gameState = checkGameState(cells)
 
     printGame(cells)
-    printGameState(gameState)
+    //printGameState(gameState)
 }
 
 private fun getStartSituation(): String {
