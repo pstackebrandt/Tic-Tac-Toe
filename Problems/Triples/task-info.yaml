@@ -11,9 +11,6 @@ files:
         // write your code here
     }
   learner_created: false
-- name: test/TriplesTest.kt
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/4705
 status: Solved
 feedback:

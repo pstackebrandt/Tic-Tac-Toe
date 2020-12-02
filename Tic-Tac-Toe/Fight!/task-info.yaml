@@ -440,6 +440,9 @@ files:
 
     import org.junit.Test
     import org.junit.Assert.*
+    import tictactoe.CellsHelper.Companion.countOCells
+    import tictactoe.CellsHelper.Companion.countXCells
+    import tictactoe.CellsHelper.Companion.hasEmptyCells
 
     class CellTest {
         companion object {
@@ -692,6 +695,328 @@ files:
         }
     }
   learner_created: false
+- name: test/tictactoe/ReadCoordinateTest.kt
+  visible: true
+  text: |-
+    package tictactoe
+
+    import org.junit.Assert.*
+    import org.junit.Test
+
+    class ReadCoordinateTest {
+        companion object {
+            const val CELLS = "X_X_O____"
+        }
+
+        @Test
+        fun testTest() {
+            assertTrue(true)
+        }
+
+        class GetMoveTest {
+            @Test
+            fun returns_a_result() {
+                val expected = 2 to 3
+                val actual = MoveMaker().getMove(CELLS, expected)
+                assertEquals(expected, actual)
+            }
+        }
+
+        class ReadCoordinatesFromConsoleTest {
+            @Test
+            fun should_return_values() {
+                val expected = 1 to 2
+                val actual = MoveMaker().readCoordinatesFromConsole(CELLS, true, 1 to 2)
+                assertEquals(expected, actual)
+            }
+
+            @Test
+            fun should_return_null_because_first_value_from_console_was_null() {
+                val actual = MoveMaker().readCoordinatesFromConsole(CELLS, true, null to 4)
+                assertNull(actual)
+            }
+
+            @Test
+            fun should_return_null_because_second_value_from_console_was_null() {
+                val actual = MoveMaker().readCoordinatesFromConsole(CELLS, true, 1 to null)
+                assertNull(actual)
+            }
+        }
+
+        /** We should not repeat tests for methods used in the method. */
+        class CheckCoordinatesTest {
+            companion object {
+                const val smallestValidValue = 1
+                const val biggestValidValue = 3
+            }
+        }
+    }
+  learner_created: false
+- name: test/tictactoe/CellsHelperTest.kt
+  visible: true
+  text: |-
+    package tictactoe
+
+    import org.junit.Test
+    import org.junit.Assert.*
+
+    internal class CellsHelperTest {
+        class ConvertCoordinateToCellsIndexTest {
+            @Test
+            fun testTest() {
+                assertTrue(true)
+            }
+
+            // We don't check, whether coordinate fits in a cells unit (3x3).
+
+            @Test
+            fun should_convert_r1_c1() {
+                val actual = CellsHelper.convertCoordinateToCellsIndex(1, 1)
+                val expected = 0
+                assertEquals(expected, actual)
+            }
+
+            @Test
+            fun should_convert_r2_c3() {
+                val actual = CellsHelper.convertCoordinateToCellsIndex(2, 3)
+                val expected = 5
+                assertEquals(expected, actual)
+            }
+
+            @Test
+            fun should_convert_r3_c3() {
+                val actual = CellsHelper.convertCoordinateToCellsIndex(3, 3)
+                val expected = 8
+                assertEquals(expected, actual)
+            }
+        }
+
+        class AddMoveToCellsTest {
+            private val testCells = "012345678"
+
+            @Test
+            fun should_add_move_at_1_3() {
+                val actual = CellsHelper.addMoveToCells(testCells, 1 to 3)
+                val expected = "01X345678"
+                assertEquals(expected, actual)
+            }
+
+            @Test
+            fun should_add_move_at_first_index() {
+                val actual = CellsHelper.addMoveToCells(testCells, 1 to 1)
+                val expected = "X12345678"
+                assertEquals(expected, actual)
+            }
+
+            @Test
+            fun should_add_move_at_last_index() {
+                val actual = CellsHelper.addMoveToCells(testCells, 3 to 3)
+                val expected = "01234567X"
+                assertEquals(expected, actual)
+            }
+        }
+    }
+  learner_created: false
+- name: test/tictactoe/MoveMakerTest.kt
+  visible: true
+  text: |-
+    package tictactoe
+
+    import org.junit.Assert
+    import org.junit.Test
+
+    class MoveMakerTest {
+        @Test
+        fun testTest(){
+            Assert.assertTrue(true)
+        }
+
+        class CheckForNotNullTest {
+            @Test
+            fun should_invalidate_first_value_if_is_null() {
+                val actual = MoveMaker.isCoordinateGiven(null, 1)
+                Assert.assertFalse(actual)
+            }
+
+            @Test
+            fun should_invalidate_second_value_if_is_null() {
+                val actual = MoveMaker.isCoordinateGiven(2, null)
+                Assert.assertFalse(actual)
+            }
+
+            @Test
+            fun should_validate_first_value_if_is_null() {
+                val actual = MoveMaker.isCoordinateGiven(2, 1)
+                Assert.assertTrue(actual)
+            }
+        }
+
+        class IsCoordinateInBordersTest {
+            @Test
+            fun should_validate_coordinate_in_borders_for_r3_c1() {
+                val actual = MoveMaker.isCoordinateInBorders(3, 1)
+                Assert.assertTrue(actual)
+            }
+
+            @Test
+            fun should_validate_coordinate_in_borders_for_r3_c3() {
+                val actual = MoveMaker.isCoordinateInBorders(3, 3)
+                Assert.assertTrue(actual)
+            }
+
+            @Test
+            fun should_invalidate_coordinate_in_borders_because_row_too_big_with_4() {
+                val actual = MoveMaker.isCoordinateInBorders(4, 1)
+                Assert.assertFalse(actual)
+            }
+
+            @Test
+            fun should_invalidate_coordinate_in_borders_because_col_too_big_with_4() {
+                val actual = MoveMaker.isCoordinateInBorders(2, 4)
+                Assert.assertFalse(actual)
+            }
+
+            @Test
+            fun should_invalidate_coordinate_in_borders_because_row_too_small_with_0() {
+                val actual = MoveMaker.isCoordinateInBorders(0, 2)
+                Assert.assertFalse(actual)
+            }
+
+            @Test
+            fun should_invalidate_coordinate_in_borders_because_col_too_small_with_minus1() {
+                val actual = MoveMaker.isCoordinateInBorders(3, -1)
+                Assert.assertFalse(actual)
+            }
+        }
+
+        class IsCoordinateFreeTest {
+            @Test
+            fun should_validate_coordinate_is_free() {
+                val actual = MoveMaker.isCoordinateFree(ReadCoordinateTest.CELLS, 3, 1)
+                Assert.assertTrue(actual)
+            }
+
+            @Test
+            fun should_invalidate_coordinate_is_free() {
+                val actual = MoveMaker.isCoordinateFree(ReadCoordinateTest.CELLS, 1, 3)
+                Assert.assertFalse(actual)
+            }
+        }
+    }
+  learner_created: false
+- name: src/tictactoe/MoveMaker.kt
+  visible: true
+  text: |-
+    package tictactoe
+
+    import java.util.*
+
+    /** Organizes moves */
+    class MoveMaker {
+        companion object {
+            internal fun isCoordinateGiven(first: Int?, second: Int?) =
+                    !(first == null || second == null)
+
+            internal fun isCoordinateInBorders(row: Int, column: Int) =
+                    row in 1..3 && column in 1..3
+
+            internal fun isCoordinateFree(cells: String, row: Int, column: Int) =
+                    cells[CellsHelper.convertCoordinateToCellsIndex(row, column)] == EMPTY_CELL
+        }
+
+        /** Get 'cells' including a move from the user. This move is valid. */
+        fun makeMove(cells: String, testMove: Pair<Int, Int>? = null): String {
+            val move: Pair<Int, Int> = testMove ?: getMove(cells)
+
+            return CellsHelper.addMoveToCells(cells, move)
+        }
+
+        private val temporaryCoordinates = 0 to 0
+
+        /* Add coordinates for test of the method only. */
+        fun getMove(cells: String, coordinatesForTest: Pair<Int, Int> = temporaryCoordinates): Pair<Int, Int> {
+            println("Enter the coordinates:")
+            var coordinates: Pair<Int, Int>? //row, column
+            do {
+                var gotCoordinates = false
+                coordinates = if (coordinatesForTest == temporaryCoordinates) {
+                    readCoordinatesFromConsole(cells)
+                } else {
+                    coordinatesForTest
+                }
+                if (coordinates != null) {
+
+                    gotCoordinates = true
+                }
+            } while (!gotCoordinates)
+
+            return coordinates!!
+        }
+
+        internal fun readCoordinatesFromConsole(cells: String,
+                                                isTest: Boolean = false,
+                                                forTest: Pair<Int?, Int?> = Pair(null, null)): Pair<Int, Int>? {
+            val scanner = Scanner(System.`in`)
+
+            val row = if (!isTest) readIntOrNullFromConsole(scanner) else forTest.first
+            val column = if (!isTest) readIntOrNullFromConsole(scanner) else forTest.second
+
+            if (!checkCoordinates(cells, row, column)) return null
+
+            return row!! to column!!
+        }
+
+        internal fun checkCoordinates(cells: String, row: Int?, column: Int?): Boolean {
+            if (!isCoordinateGiven(row, column)) {
+                println("You should enter numbers!")
+                return false
+            }
+            if (!isCoordinateInBorders(row!!, column!!)) {
+                println("Coordinates should be from 1 to 3!")
+                return false
+            }
+            if (!isCoordinateFree(cells, row, column)) {
+                println("This cell is occupied! Choose another one!")
+                return false
+            }
+            return true
+        }
+
+        private fun readIntOrNullFromConsole(scanner: Scanner): Int? {
+            if (scanner.hasNextInt()) {
+                return scanner.nextInt()
+            }
+            return null
+        }
+    }
+  learner_created: true
+- name: src/tictactoe/CellsHelper.kt
+  visible: true
+  text: |-
+    package tictactoe
+
+    class CellsHelper {
+        companion object {
+            internal fun hasEmptyCells(cells: String) =
+                    cells.contains(EMPTY_CELL)
+
+            internal fun countXCells(cells: String) =
+                    cells.filter { it.toUpperCase() == X_CELL }.count()
+
+            internal fun countOCells(cells: String) =
+                    cells.filter { it.toUpperCase() == O_CELL }.count()
+
+            /** Cell positions in a 3x3 game: 012345678, coordinate (1..3, 1..3) */
+            internal fun convertCoordinateToCellsIndex(row: Int, column: Int) =
+                    (row - 1) * MAX_COLUMNS + column - 1
+
+            internal fun addMoveToCells(cells: String, move: Pair<Int, Int>): String {
+                val index = CellsHelper.convertCoordinateToCellsIndex(move.first, move.second)
+                return cells.take(index) + "X" + cells.takeLast(cells.length - (index + 1))
+            }
+        }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/123/stages/658/implement
 status: Unchecked
-record: -1
+record: 5
