@@ -33,7 +33,7 @@ class GameStateHelper {
 
     fun isWinner(player: Player, cells: String) = takenLinesCount(cells, player) > 0
 
-    fun isImpossibleCells(cells: String): Boolean {
+    private fun isImpossibleCells(cells: String): Boolean {
         if (!hasValidCharacters(cells)) return true
         if (!isPlayerCellsCountOk(cells)) return true
         if (!hasBalancedLinesCount(cells)) return true

@@ -16,7 +16,7 @@ class CellsHelper {
                 (row - 1) * MAX_COLUMNS + column - 1
 
         internal fun addMoveToCells(cells: String, move: Pair<Int, Int>): String {
-            val index = CellsHelper.convertCoordinateToCellsIndex(move.first, move.second)
+            val index = convertCoordinateToCellsIndex(move.first, move.second)
             return cells.take(index) + "X" + cells.takeLast(cells.length - (index + 1))
         }
     }

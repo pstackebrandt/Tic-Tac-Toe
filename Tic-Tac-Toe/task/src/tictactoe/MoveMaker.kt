@@ -57,7 +57,7 @@ class MoveMaker {
         return row!! to column!!
     }
 
-    internal fun checkCoordinates(cells: String, row: Int?, column: Int?): Boolean {
+    private fun checkCoordinates(cells: String, row: Int?, column: Int?): Boolean {
         if (!isCoordinateGiven(row, column)) {
             println("You should enter numbers!")
             return false

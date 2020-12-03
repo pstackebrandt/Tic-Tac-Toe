@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package tictactoe
 
 import org.junit.Assert.assertTrue

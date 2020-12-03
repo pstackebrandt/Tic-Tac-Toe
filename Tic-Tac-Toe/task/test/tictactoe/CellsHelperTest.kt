@@ -3,6 +3,7 @@ package tictactoe
 import org.junit.Test
 import org.junit.Assert.*
 
+@Suppress("unused")
 internal class CellsHelperTest {
     class ConvertCoordinateToCellsIndexTest {
         @Test

@@ -8,11 +8,6 @@ class ReadCoordinateTest {
         const val CELLS = "X_X_O____"
     }
 
-    @Test
-    fun testTest() {
-        assertTrue(true)
-    }
-
     class GetMoveTest {
         @Test
         fun returns_a_result() {
@@ -40,14 +35,6 @@ class ReadCoordinateTest {
         fun should_return_null_because_second_value_from_console_was_null() {
             val actual = MoveMaker().readCoordinatesFromConsole(CELLS, true, 1 to null)
             assertNull(actual)
-        }
-    }
-
-    /** We should not repeat tests for methods used in the method. */
-    class CheckCoordinatesTest {
-        companion object {
-            const val smallestValidValue = 1
-            const val biggestValidValue = 3
         }
     }
 }

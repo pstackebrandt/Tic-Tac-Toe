@@ -5,7 +5,7 @@ import org.junit.Test
 
 class MoveMakerTest {
     @Test
-    fun testTest(){
+    fun testTest() {
         Assert.assertTrue(true)
     }
 
