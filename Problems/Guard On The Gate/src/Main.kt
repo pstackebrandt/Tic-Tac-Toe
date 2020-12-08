@@ -1,1 +1,1 @@
-println((backFromTheWall.plus(returnedWatchman)).joinToString())
+println(backFromTheWall.plus(returnedWatchman).joinToString())
