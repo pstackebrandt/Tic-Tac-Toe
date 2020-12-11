@@ -62,5 +62,8 @@ content:
 - String processor
 - The number of digits
 - First digit
+<<<<<<< HEAD
 - Beyond the word
 - A small version of the Battleship game
+=======
+>>>>>>> 84695b67b6514aa8a9b7992401e9259d33d58577
