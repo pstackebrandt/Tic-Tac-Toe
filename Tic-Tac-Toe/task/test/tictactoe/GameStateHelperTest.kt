@@ -4,6 +4,13 @@ package tictactoe
 
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import tictactoe.StateChecker.Companion.checkGameState
+import tictactoe.StateChecker.Companion.countPlayerCells
+import tictactoe.StateChecker.Companion.hasValidCharacters
+import tictactoe.StateChecker.Companion.hasValidLength
+import tictactoe.StateChecker.Companion.isPlayerCellsCountOk
+import tictactoe.StateChecker.Companion.isWinner
+import tictactoe.StateChecker.Companion.takenLinesCount
 
 class GameStateHelperTest {
     companion object {
@@ -30,7 +37,7 @@ class GameStateHelperTest {
     class CountPlayerCellsTest {
         @Test
         fun should_deliver_player_cell_counts() {
-            val actual = GameStateHelper().countPlayerCells("XXXOO_OO_")
+            val actual = countPlayerCells("XXXOO_OO_")
             assert(actual.first > 0) { "Should deliver X cells. delivered: ${actual.first}" }
             assert(actual.second > 0) { "Should deliver O cells. delivered: ${actual.second}" }
         }
@@ -40,35 +47,35 @@ class GameStateHelperTest {
         @Test
         fun should_detect_that_no_line_taken_by_x() {
             val expected = 0
-            val actual = GameStateHelper().takenLinesCount(CELLS_WITH_NO_LINE_TAKEN, Player.X)
+            val actual = takenLinesCount(CELLS_WITH_NO_LINE_TAKEN, Player.X)
             assert(actual == expected) { "Should detect that no row taken. expected: $expected, actual: $actual" }
         }
 
         @Test
         fun should_detect_row_taken_by_x() {
             val expected = 1
-            val actual = GameStateHelper().takenLinesCount(CELLS_WITH_ROW_0_TAKEN_BY_X, Player.X)
+            val actual = takenLinesCount(CELLS_WITH_ROW_0_TAKEN_BY_X, Player.X)
             assert(actual == expected) { "Should detect taken row. expected: $expected, actual: $actual" }
         }
 
         @Test
         fun should_detect_that_column_taken_by_o() {
             val expected = 1
-            val actual = GameStateHelper().takenLinesCount(CELLS_WITH_COLUMN_TAKEN_BY_O, Player.O)
+            val actual = takenLinesCount(CELLS_WITH_COLUMN_TAKEN_BY_O, Player.O)
             assert(actual == expected) { "Should detect column taken. expected: $expected, actual: $actual" }
         }
 
         @Test
         fun should_detect_that_slash_line_taken_by_o() {
             val expected = 1
-            val actual = GameStateHelper().takenLinesCount(CELLS_WITH_SLASH_LINE_TAKEN_BY_O, Player.O)
+            val actual = takenLinesCount(CELLS_WITH_SLASH_LINE_TAKEN_BY_O, Player.O)
             assert(actual == expected) { "Should detect slash line taken. expected: $expected, actual: $actual" }
         }
 
         @Test
         fun should_detect_that_back_slash_line_taken_by_x() {
             val expected = 1
-            val actual = GameStateHelper().takenLinesCount(CELLS_WITH_BACK_SLASH_LINE_TAKEN_BY_X, Player.X)
+            val actual = takenLinesCount(CELLS_WITH_BACK_SLASH_LINE_TAKEN_BY_X, Player.X)
             assert(actual == expected) { "Should detect back slash line taken. expected: $expected, actual: $actual" }
         }
     }
@@ -77,7 +84,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_that_cells_contains_right_characters_only() {
             val expected = true
-            val actual = GameStateHelper().hasValidCharacters(CELLS_WITH_REGULAR_CHARACTERS_AND_LENGTH)
+            val actual = hasValidCharacters(CELLS_WITH_REGULAR_CHARACTERS_AND_LENGTH)
             assert(actual == expected) {
                 "Should detect that cells contains valid characters only. " +
                         "expected: $expected, actual: $actual"
@@ -87,7 +94,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_that_cells_contains_invalid_characters() {
             val expected = false
-            val actual = GameStateHelper().hasValidCharacters(CELLS_WITH_INVALID_CHARACTERS)
+            val actual = hasValidCharacters(CELLS_WITH_INVALID_CHARACTERS)
             assert(actual == expected) {
                 "Should detect that cells contains invalid characters." +
                         " expected: $expected, actual: $actual"
@@ -99,7 +106,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_that_cells_length_is_ok() {
             val expected = true
-            val actual = GameStateHelper().hasValidLength(CELLS_WITH_REGULAR_CHARACTERS_AND_LENGTH)
+            val actual = hasValidLength(CELLS_WITH_REGULAR_CHARACTERS_AND_LENGTH)
             assert(actual == expected) {
                 "Should detect that cell length is ok. " +
                         "expected: $expected, actual: $actual"
@@ -109,7 +116,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_cells_too_short() {
             val expected = false
-            val actual = GameStateHelper().hasValidLength(CELLS_TOO_SHORT)
+            val actual = hasValidLength(CELLS_TOO_SHORT)
             assert(actual == expected) {
                 "Should detect that cell length is too short. " +
                         "expected: $expected, actual: $actual"
@@ -119,7 +126,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_cells_too_long() {
             val expected = false
-            val actual = GameStateHelper().hasValidLength(CELLS_TOO_LONG)
+            val actual = hasValidLength(CELLS_TOO_LONG)
             assert(actual == expected) {
                 "Should detect that cell length is too long. " +
                         "expected: $expected, actual: $actual"
@@ -131,7 +138,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_player_is_winner() {
             val expected = true
-            val actual = GameStateHelper().isWinner(Player.X, CELLS_WITH_ROW_0_TAKEN_BY_X)
+            val actual = isWinner(Player.X, CELLS_WITH_ROW_0_TAKEN_BY_X)
             assert(actual == expected) {
                 "Should detect that X is winner. " +
                         "expected: $expected, actual: $actual"
@@ -141,7 +148,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_that_player_is_not_winner() {
             val expected = false
-            val actual = GameStateHelper().isWinner(Player.O, CELLS_WITH_ROW_0_TAKEN_BY_X)
+            val actual = isWinner(Player.O, CELLS_WITH_ROW_0_TAKEN_BY_X)
             assert(actual == expected) {
                 "Should detect that player is not winner. " +
                         "expected: $expected, actual: $actual"
@@ -153,7 +160,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_stale_mate() {
             val expected = GameState.StaleMate
-            val actual = GameStateHelper().checkGameState(CELLS_WITH_STALE_MATE)
+            val actual = checkGameState(CELLS_WITH_STALE_MATE)
             assert(actual == expected) {
                 "Should detect stale mate" +
                         "expected: $expected, actual: $actual"
@@ -163,7 +170,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_game_goes_on() {
             val expected = GameState.GameGoesOn
-            val actual = GameStateHelper().checkGameState(CELLS_WITH_UNFINISHED_GAME)
+            val actual = checkGameState(CELLS_WITH_UNFINISHED_GAME)
             assert(actual == expected) {
                 "Should detect game goes on" +
                         "expected: $expected, actual: $actual"
@@ -175,7 +182,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_player_cells_count_ok() {
             val expected = true
-            val actual = GameStateHelper().isPlayerCellsCountOk(CELLS_WITH_PLAYER_CELLS_COUNT_OK)
+            val actual = isPlayerCellsCountOk(CELLS_WITH_PLAYER_CELLS_COUNT_OK)
             assert(actual == expected) {
                 "Should detect that player cells count ok" +
                         "expected: $expected, actual: $actual"
@@ -185,7 +192,7 @@ class GameStateHelperTest {
         @Test
         fun should_detect_player_cells_count_wrong() {
             val expected = false
-            val actual = GameStateHelper().isPlayerCellsCountOk(CELLS_WITH_PLAYER_CELLS_COUNT_OFF_BALANCE)
+            val actual = isPlayerCellsCountOk(CELLS_WITH_PLAYER_CELLS_COUNT_OFF_BALANCE)
             assert(actual == expected) {
                 "Should detect that player cells count off balance" +
                         " expected: $expected, actual: $actual"

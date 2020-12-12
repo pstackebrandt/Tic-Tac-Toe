@@ -1,5 +1,10 @@
 package tictactoe
 
+import tictactoe.TicTacToeGame.Companion.EMPTY_CELL
+import tictactoe.TicTacToeGame.Companion.MAX_COLUMNS
+import tictactoe.TicTacToeGame.Companion.O_CELL
+import tictactoe.TicTacToeGame.Companion.X_CELL
+
 class CellsHelper {
     companion object {
         internal fun hasEmptyCells(cells: String) =
@@ -15,9 +20,9 @@ class CellsHelper {
         internal fun convertCoordinateToCellsIndex(row: Int, column: Int) =
                 (row - 1) * MAX_COLUMNS + column - 1
 
-        internal fun addMoveToCells(cells: String, move: Pair<Int, Int>): String {
-            val index = CellsHelper.convertCoordinateToCellsIndex(move.first, move.second)
-            return cells.take(index) + "X" + cells.takeLast(cells.length - (index + 1))
+        internal fun addMoveToCells(cells: String, move: Pair<Int, Int>, player: Player = Player.X): String {
+            val index = convertCoordinateToCellsIndex(move.first, move.second)
+            return cells.take(index) + player.getChar().toString() + cells.takeLast(cells.length - (index + 1))
         }
     }
 }

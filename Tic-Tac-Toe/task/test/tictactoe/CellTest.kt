@@ -3,6 +3,9 @@ package tictactoe
 import org.junit.Test
 import tictactoe.CellsHelper.Companion.countOCells
 import tictactoe.CellsHelper.Companion.countXCells
+import tictactoe.TicTacToeGame.Companion.O_CELL
+import tictactoe.TicTacToeGame.Companion.X_CELL
+import tictactoe.TicTacToeGame.Companion.getPlayerToken
 
 @Suppress("unused")
 class CellTest {
@@ -48,6 +51,7 @@ class CellTest {
         @Test
         fun should_deliver_player_o_cell_token() {
             val actual = getPlayerToken(Player.O)
+            @Suppress("unused")
             assert(actual == O_CELL) { "Should deliver O cell. delivered: $actual" }
         }
     }

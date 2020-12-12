@@ -1,5 +1,6 @@
 package tictactoe
 
+import tictactoe.TicTacToeGame.Companion.EMPTY_CELL
 import java.util.*
 
 /** Organizes moves */
@@ -16,10 +17,10 @@ class MoveMaker {
     }
 
     /** Get 'cells' including a move from the user. This move is valid. */
-    fun makeMove(cells: String, testMove: Pair<Int, Int>? = null): String {
+    fun makeMove(cells: String, player: Player, testMove: Pair<Int, Int>? = null): String {
         val move: Pair<Int, Int> = testMove ?: getMove(cells)
 
-        return CellsHelper.addMoveToCells(cells, move)
+        return CellsHelper.addMoveToCells(cells, move, player)
     }
 
     private val temporaryCoordinates = 0 to 0
@@ -57,7 +58,7 @@ class MoveMaker {
         return row!! to column!!
     }
 
-    internal fun checkCoordinates(cells: String, row: Int?, column: Int?): Boolean {
+    private fun checkCoordinates(cells: String, row: Int?, column: Int?): Boolean {
         if (!isCoordinateGiven(row, column)) {
             println("You should enter numbers!")
             return false
